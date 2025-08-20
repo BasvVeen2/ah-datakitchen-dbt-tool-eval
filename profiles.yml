@@ -1,0 +1,10 @@
+tempname:
+  target: dev
+  outputs:
+    type:
+    catalog:
+    schema:
+    host:
+    http_path:
+    auth_type:
+  
