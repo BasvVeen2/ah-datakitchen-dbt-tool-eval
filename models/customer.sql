@@ -1,6 +1,7 @@
 {{ config(
     materialized='view',
-    schema='staging'
+    schema='staging',
+    file_format='delta'
 ) }}
 
 select
