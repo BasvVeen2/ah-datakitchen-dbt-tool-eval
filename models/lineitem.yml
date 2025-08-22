@@ -1,0 +1,41 @@
+models:
+- name: lineitem
+  description: This model serves as a staging view for line items, providing detailed
+    information about each line in an order. It includes key identifiers for orders,
+    parts, and suppliers, as well as details on quantity, pricing, discounts, taxes,
+    and shipping instructions. This model is essential for analyzing order components
+    and their fulfillment status.
+  columns:
+  - name: order_key
+    description: A unique identifier for each order.
+  - name: part_key
+    description: A unique identifier for each part included in the order.
+  - name: supplier_key
+    description: A unique identifier for the supplier of the part.
+  - name: line_number
+    description: The line number of the item within the order.
+  - name: quantity
+    description: The quantity of the part ordered.
+  - name: extended_price
+    description: The total price for the quantity of parts ordered, before discounts
+      and taxes.
+  - name: discount
+    description: The discount applied to the extended price.
+  - name: tax
+    description: The tax applied to the extended price after discount.
+  - name: return_flag
+    description: Indicates if the item has been returned.
+  - name: line_status
+    description: The current status of the line item.
+  - name: ship_date
+    description: The date the item is scheduled to be shipped.
+  - name: commit_date
+    description: The date the order was committed.
+  - name: receipt_date
+    description: The date the item is expected to be received.
+  - name: ship_instruct
+    description: Instructions for shipping the item.
+  - name: ship_mode
+    description: The mode of shipping for the item.
+  - name: comment
+    description: Additional comments regarding the line item.
