@@ -6,8 +6,13 @@ models:
   columns:
   - name: supplier_key
     description: A unique identifier for each supplier.
+    data_tests:
+      - unique
+      - not_null
   - name: supplier_name
     description: The name of the supplier.
+    data_tests:
+      - not_null
   - name: address
     description: The address of the supplier.
   - name: nation_key
