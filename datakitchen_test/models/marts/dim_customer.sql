@@ -1,17 +1,15 @@
 SELECT
     cd.customer_key,
     cd.customer_name,
-    cd.nation_key,
     cd.account_balance,
     cd.market_segment,
     cd.comment,
     cd.street_number,
     cd.street_name,
-    r.name,
+    r.region_name as region,
     r.comment AS region_comment,
-    n.name,
+    n.nation_name as nation,
     n.comment AS nation_comment,
-    c.count,
     cd.postal_code,
     -- Get primary contact info
     cc_primary.contact_value as primary_phone,
@@ -33,4 +31,4 @@ INNER JOIN {{ ref('customer_contacts') }} cc_email
 INNER JOIN {{ ref('region') }} r 
     ON cd.regionkey = r.region_key
 INNER JOIN {{ ref('nation') }} n
-    ON cd.countrykey = n.countrykey
+    ON cd.countrykey = n.nation_key
