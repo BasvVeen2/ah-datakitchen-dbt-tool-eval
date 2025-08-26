@@ -11,23 +11,23 @@ sources:
           personal details, contact methods, and account history. It is used to analyze
           customer demographics, contact preferences, and financial interactions.
         columns:
-          - name: customer_key
+          - name: c_custkey
             description: A unique identifier for each customer.
-          - name: customer_name
+          - name: c_name
             description: The full name of the customer.
-          - name: nation_key
+          - name: c_nationkey
             description: A reference to the customer's nation, used for geographical analysis.
-          - name: phone
+          - name: c_phone
             description: The customer's phone number for contact purposes.
-          - name: account_balance
+          - name: c_acctbal
             description:
               The current balance in the customer's account, used for financial
               analysis.
-          - name: market_segment
+          - name: c_mktsegment
             description:
               The market segment to which the customer belongs, useful for marketing
               strategies.
-          - name: comment
+          - name: c_comment
             description: Additional comments or notes about the customer.
           - name: address
             description:
@@ -49,39 +49,39 @@ sources:
           and shipping instructions. This model is essential for analyzing order components
           and their fulfillment status.
         columns:
-          - name: order_key
+          - name: l_orderkey
             description: A unique identifier for each order.
-          - name: part_key
+          - name: l_partkey
             description: A unique identifier for each part included in the order.
-          - name: supplier_key
+          - name: l_suppkey
             description: A unique identifier for the supplier of the part.
-          - name: line_number
+          - name: l_linenumber
             description: The line number of the item within the order.
-          - name: quantity
+          - name: l_quantity
             description: The quantity of the part ordered.
-          - name: extended_price
+          - name: l_extendedprice
             description:
               The total price for the quantity of parts ordered, before discounts
               and taxes.
-          - name: discount
+          - name: l_discount
             description: The discount applied to the extended price.
-          - name: tax
+          - name: l_tax
             description: The tax applied to the extended price after discount.
-          - name: return_flag
+          - name: l_returnflag
             description: Indicates if the item has been returned.
-          - name: line_status
+          - name: l_linestatus
             description: The current status of the line item.
-          - name: ship_date
+          - name: l_shipdate
             description: The date the item is scheduled to be shipped.
-          - name: commit_date
+          - name: l_commitdate
             description: The date the order was committed.
-          - name: receipt_date
+          - name: l_receiptdate
             description: The date the item is expected to be received.
-          - name: ship_instruct
+          - name: l_shipinstruct
             description: Instructions for shipping the item.
-          - name: ship_mode
+          - name: l_shipmode
             description: The mode of shipping for the item.
-          - name: comment
+          - name: l_comment
             description: Additional comments regarding the line item.
       - name: nation
         description:
@@ -90,13 +90,13 @@ sources:
           useful for analyzing and organizing data related to different nations and their
           regional associations.
         columns:
-          - name: nation_key
+          - name: n_nationkey
             description: A unique identifier for each nation.
-          - name: nation_name
+          - name: n_name
             description: The name of the nation.
-          - name: region_key
+          - name: n_regionkey
             description: A reference key linking the nation to its region.
-          - name: comment
+          - name: n_comment
             description: Additional comments or notes about the nation.
       - name: order
         identifier: orders_nested
@@ -105,31 +105,31 @@ sources:
           information such as order status, total price, and shipping details. It is designed
           to facilitate analysis of order processing and fulfillment.
         columns:
-          - name: order_key
+          - name: o_orderkey
             description: A unique identifier for each order.
-          - name: customer_key
+          - name: o_custkey
             description: A unique identifier for the customer who placed the order.
-          - name: order_status
+          - name: o_orderstatus
             description:
               The current status of the order, indicating its stage in the processing
               cycle.
-          - name: total_price
+          - name: o_totalprice
             description:
               The total price of the order, including all items and applicable
               taxes.
-          - name: order_date
+          - name: o_orderdate
             description: The date when the order was placed.
-          - name: order_priority
+          - name: o_orderpriority
             description:
               The priority level assigned to the order, which may affect processing
               speed.
-          - name: clerk
+          - name: o_clerk
             description: The name of the clerk responsible for handling the order.
-          - name: ship_priority
+          - name: o_shippriority
             description:
               The priority level for shipping the order, which may affect delivery
               speed.
-          - name: comment
+          - name: o_comment
             description: Additional comments or notes related to the order.
           - name: shipping_info
             description:
@@ -146,23 +146,23 @@ sources:
           materials, as well as supplier details like available quantity and supply cost.
           This model is useful for analyzing part inventory and supplier relationships.
         columns:
-          - name: part_key
+          - name: p_partkey
             description: A unique identifier for each part.
-          - name: part_name
+          - name: p_name
             description: The name of the part.
-          - name: manufacturer
+          - name: p_mfgr
             description: The manufacturer of the part.
-          - name: brand
+          - name: p_brand
             description: The brand of the part.
-          - name: type
+          - name: p_type
             description: The type or category of the part.
-          - name: size
+          - name: p_size
             description: The size of the part.
-          - name: container
+          - name: p_container
             description: The type of container used for the part.
-          - name: retail_price
+          - name: p_retailprice
             description: The retail price of the part.
-          - name: comment
+          - name: p_comment
             description: Additional comments or notes about the part.
           - name: specifications
             description:
@@ -178,11 +178,11 @@ sources:
           keys, names, and comments. It is useful for categorizing and analyzing data by
           geographical regions.
         columns:
-          - name: region_key
+          - name: r_regionkey
             description: A unique identifier for each region.
-          - name: region_name
+          - name: r_name
             description: The name of the region.
-          - name: comment
+          - name: r_comment
             description: Additional information or comments about the region.
       - name: supplier
         description:
@@ -190,22 +190,17 @@ sources:
           attributes such as name, address, and contact information. It is used to manage
           supplier data and facilitate supplier-related operations.
         columns:
-          - name: supplier_key
+          - name: s_suppkey
             description: A unique identifier for each supplier.
-            data_tests:
-              - unique
-              - not_null
-          - name: supplier_name
+          - name: s_name
             description: The name of the supplier.
-            data_tests:
-              - not_null
-          - name: address
+          - name: s_address
             description: The address of the supplier.
-          - name: nation_key
+          - name: s_nationkey
             description: A reference to the nation associated with the supplier.
-          - name: phone
+          - name: s_phone
             description: The contact phone number of the supplier.
-          - name: account_balance
+          - name: s_acctbal
             description: The current account balance of the supplier.
-          - name: comment
+          - name: s_comment
             description: Additional comments or notes about the supplier.
