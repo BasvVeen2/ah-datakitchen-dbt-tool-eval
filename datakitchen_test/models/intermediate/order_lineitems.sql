@@ -7,6 +7,7 @@ SELECT
     -- Unnesting line items array
     line_item.part_key,
     line_item.supplier_key,
+    line_item.linenumber,
     line_item.quantity,
     line_item.extended_price,
     line_item.discount,

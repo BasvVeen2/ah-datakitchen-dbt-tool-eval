@@ -7,8 +7,11 @@ SELECT
     cd.comment,
     cd.street_number,
     cd.street_name,
-    cd.region,
-    cd.country,
+    r.name,
+    r.comment AS region_comment,
+    n.name,
+    n.comment AS nation_comment,
+    c.count,
     cd.postal_code,
     -- Get primary contact info
     cc_primary.contact_value as primary_phone,
@@ -20,10 +23,14 @@ SELECT
         ELSE 'Basic'
     END as customer_tier
 FROM {{ ref('customer_details') }} cd
-LEFT JOIN {{ ref('customer_contacts') }} cc_primary
+INNER JOIN {{ ref('customer_contacts') }} cc_primary
     ON cd.customer_key = cc_primary.customer_key
     AND cc_primary.contact_type = 'phone'
     AND cc_primary.is_primary_contact_type = true
-LEFT JOIN {{ ref('customer_contacts') }} cc_email
+INNER JOIN {{ ref('customer_contacts') }} cc_email
     ON cd.customer_key = cc_email.customer_key
     AND cc_email.contact_type = 'email'
+INNER JOIN alh_nonprd_datakitchen.staging.region r 
+    ON cd.regionkey = r.region_key
+INNER JOIN alh_nonprd_datakitchen.staging.nation n
+    ON cd.countrykey = n.countrykey

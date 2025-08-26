@@ -10,8 +10,8 @@ WITH customer_address AS (
     -- Unnesting address structure
     address.street_number,
     address.street_name,
-    address.location.region,
-    address.location.country,
+    address.location.regionkey,
+    address.location.countrykey,
     address.location.postal_code
   FROM {{ ref('customer') }}
 )

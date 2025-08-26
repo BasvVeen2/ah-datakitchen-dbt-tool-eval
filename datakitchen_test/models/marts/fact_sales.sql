@@ -16,6 +16,6 @@ SELECT
     CAST(oli.final_price - ps.supply_cost * oli.quantity AS decimal(15,2)) as gross_profit,
     DATEDIFF(oli.ship_date, oli.order_date) as order_to_ship_days
 FROM {{ ref('order_lineitems') }} oli
-LEFT JOIN {{ ref('part_supplier') }} ps
+INNER JOIN {{ ref('part_supplier') }} ps
     ON oli.part_key = ps.part_key
     AND oli.supplier_key = ps.supplier_key
