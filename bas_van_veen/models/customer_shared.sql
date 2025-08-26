@@ -1,0 +1,1 @@
+select * from {{ ref("dbt-datakitchen-test", "customer") }}
