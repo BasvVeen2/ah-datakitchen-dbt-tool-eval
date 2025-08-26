@@ -1,0 +1,19 @@
+WITH customer_address AS (
+  SELECT
+    customer_key,
+    customer_name,
+    nation_key,
+    phone,
+    account_balance,
+    market_segment,
+    comment,
+    -- Unnesting address structure
+    address.street_number,
+    address.street_name,
+    address.location.region,
+    address.location.country,
+    address.location.postal_code
+  FROM {{ ref('customer') }}
+)
+
+SELECT * FROM customer_address
