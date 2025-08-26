@@ -30,7 +30,7 @@ INNER JOIN {{ ref('customer_contacts') }} cc_primary
 INNER JOIN {{ ref('customer_contacts') }} cc_email
     ON cd.customer_key = cc_email.customer_key
     AND cc_email.contact_type = 'email'
-INNER JOIN alh_nonprd_datakitchen.staging.region r 
+INNER JOIN {{ ref('region') }} r 
     ON cd.regionkey = r.region_key
-INNER JOIN alh_nonprd_datakitchen.staging.nation n
+INNER JOIN {{ ref('nation') }} n
     ON cd.countrykey = n.countrykey
