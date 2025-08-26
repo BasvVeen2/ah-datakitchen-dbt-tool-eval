@@ -4,4 +4,4 @@
     access="public"
 ) }}
 
-select * from {{ ref("dbt-datakitchen-test", "customer") }}
+select * from {{ ref("dk_dbt_tooleval", "customer") }}
