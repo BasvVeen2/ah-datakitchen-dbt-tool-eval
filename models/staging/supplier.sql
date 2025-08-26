@@ -8,4 +8,4 @@ SELECT
     s_phone as phone,
     s_acctbal as account_balance,
     s_comment as comment
-from alh_dk_dbt_test_tpch.raw.supplier
+FROM {{source("tpch", "supplier")}}

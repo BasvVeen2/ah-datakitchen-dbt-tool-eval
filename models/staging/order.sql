@@ -17,4 +17,4 @@ SELECT
     o_comment as comment,
     shipping_info,
     line_items
-FROM alh_dk_dbt_test_tpch.raw.orders_nested
+FROM {{source("tpch", "order")}}

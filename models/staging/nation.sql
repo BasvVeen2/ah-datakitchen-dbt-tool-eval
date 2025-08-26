@@ -9,4 +9,4 @@ SELECT
     n_name as nation_name,
     n_regionkey as region_key,
     n_comment as comment
-FROM alh_dk_dbt_test_tpch.raw.nation
+FROM {{source("tpch", "nation")}}

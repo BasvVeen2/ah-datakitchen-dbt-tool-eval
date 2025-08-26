@@ -21,4 +21,4 @@ SELECT
     l_shipinstruct as ship_instruct,
     l_shipmode as ship_mode,
     l_comment as comment
-FROM alh_dk_dbt_test_tpch.raw.lineitem
+from {{source("tpch", "lineitem")}}

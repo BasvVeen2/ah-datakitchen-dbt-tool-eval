@@ -12,4 +12,4 @@ select
     p_comment as comment,
     specifications,
     suppliers
-from alh_dk_dbt_test_tpch.raw.part_nested
+FROM {{source("tpch", "part_supplier")}}
