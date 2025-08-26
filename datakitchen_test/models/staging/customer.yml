@@ -3,6 +3,8 @@ models:
   description: This model provides a detailed view of customer information, including
     personal details, contact methods, and account history. It is used to analyze
     customer demographics, contact preferences, and financial interactions.
+  config:
+    access: public
   columns:
   - name: customer_key
     description: A unique identifier for each customer.
