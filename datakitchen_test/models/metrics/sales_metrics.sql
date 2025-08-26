@@ -9,7 +9,7 @@ SELECT
   CAST(SUM(gross_profit) AS decimal(15,2)) as total_gross_profit,
   CAST(AVG(discount) AS decimal(5,2)) as avg_discount_rate,
   AVG(order_to_ship_days) as avg_fulfillment_days
-FROM {{ reference("fact_sales")}} f
-  INNER JOIN alh_nonprd_datakitchen.marts.dim_customer d
+FROM {{ ref("fact_sales")}} f
+INNER JOIN {{ ref("dim_customer")}} d
     ON f.customer_key = d.customer_key
 GROUP BY d.regionkey, order_date
