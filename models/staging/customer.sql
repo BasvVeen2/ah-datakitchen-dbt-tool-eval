@@ -15,4 +15,4 @@ select
     address,
     contact_methods,
     account_history
-from alh_dk_dbt_test_tpch.raw.customer_nested
+from {{source("tpch", "customer")}}
