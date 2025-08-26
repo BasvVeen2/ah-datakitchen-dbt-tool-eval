@@ -5,6 +5,7 @@ sources:
     schema: raw
     tables:
       - name: customer
+        identifier: customer_nested
         description:
           This model provides a detailed view of customer information, including
           personal details, contact methods, and account history. It is used to analyze
@@ -98,6 +99,7 @@ sources:
           - name: comment
             description: Additional comments or notes about the nation.
       - name: order
+        identifier: orders_nested
         description:
           This model provides a detailed view of customer orders, including key
           information such as order status, total price, and shipping details. It is designed
@@ -137,7 +139,7 @@ sources:
             description:
               An array of line items in the order, detailing each product, supplier,
               and associated costs.
-      - name: part_supplier
+      - name: part_nested
         description:
           This model provides a detailed view of parts and their associated suppliers.
           It includes information about the part's specifications, such as dimensions and

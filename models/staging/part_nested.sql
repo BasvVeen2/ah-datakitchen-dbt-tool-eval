@@ -12,4 +12,4 @@ select
     p_comment as comment,
     specifications,
     suppliers
-FROM {{source("tpch", "part_supplier")}}
+FROM {{source("tpch", "part_nested")}}
