@@ -204,3 +204,4 @@ sources:
             description: The current account balance of the supplier.
           - name: s_comment
             description: Additional comments or notes about the supplier.
+
