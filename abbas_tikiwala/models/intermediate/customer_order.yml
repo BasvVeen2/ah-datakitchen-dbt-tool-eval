@@ -1,0 +1,12 @@
+models:
+- name: customer_order
+  description: This model provides a detailed view of customer and order information.
+  columns:
+  - name: customer_id
+    description: A unique identifier for each customer.
+  - name: total_orders
+    description: The total orders of the customer.
+  - name: total_order_amount
+    description: Total amount of the customers.
+  - name: average_order_amount
+    description: The average order amount in the customer's account
