@@ -6,7 +6,7 @@
 
 with customer_orders as (
     select
-        customer.customer_key,
+        customer.customer_key as customer_key,
         count(order_key) as total_orders,
         sum(total_price) as total_order_amount,
         avg(total_price) as average_order_amount
