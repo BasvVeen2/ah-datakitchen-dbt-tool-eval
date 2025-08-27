@@ -1,0 +1,31 @@
+models:
+- name: customer
+  description: This model provides a detailed view of customer information, including
+    personal details, contact methods, and account history. It is used to analyze
+    customer demographics, contact preferences, and financial interactions.
+  columns:
+  - name: customer_key
+    description: A unique identifier for each customer.
+  - name: customer_name
+    description: The full name of the customer.
+  - name: nation_key
+    description: A reference to the customer's nation, used for geographical analysis.
+  - name: phone
+    description: The customer's phone number for contact purposes.
+  - name: account_balance
+    description: The current balance in the customer's account, used for financial
+      analysis.
+  - name: market_segment
+    description: The market segment to which the customer belongs, useful for marketing
+      strategies.
+  - name: comment
+    description: Additional comments or notes about the customer.
+  - name: address
+    description: The structured address of the customer, including street and location
+      details.
+  - name: contact_methods
+    description: An array of contact methods for the customer, indicating type, value,
+      and primary status.
+  - name: account_history
+    description: A record of the customer's account activities, including dates, event
+      types, and amounts.
