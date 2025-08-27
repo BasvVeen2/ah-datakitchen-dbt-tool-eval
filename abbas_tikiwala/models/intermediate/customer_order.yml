@@ -4,9 +4,17 @@ models:
   columns:
   - name: customer_id
     description: A unique identifier for each customer.
+    data_tests:
+      - not_null
   - name: total_orders
     description: The total orders of the customer.
+    data_tests:
+      - not_null
   - name: total_order_amount
     description: Total amount of the customers.
+    data_tests:
+      - not_null
   - name: average_order_amount
     description: The average order amount in the customer's account
+    data_tests:
+      - not_null
