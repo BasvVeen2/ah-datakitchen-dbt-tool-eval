@@ -2,7 +2,7 @@ sources:
   - name: tpch
     description: TPCH data generated with scale factor 300
     database: alh_dk_dbt_test_tpch
-    schema: grzegorz_ferens
+    schema: gzegorz_ferens
     tables:
       - name: customer
         identifier: customer_nested
