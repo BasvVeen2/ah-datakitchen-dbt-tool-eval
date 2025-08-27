@@ -2,7 +2,7 @@ sources:
   - name: tpch
     description: TPCH data generated with scale factor 300
     database: alh_dk_dbt_test_tpch
-    schema: raw
+    schema: grzegorz_ferens
     tables:
       - name: customer
         identifier: customer_nested
@@ -41,48 +41,6 @@ sources:
             description:
               A record of the customer's account activities, including dates, event
               types, and amounts.
-      - name: lineitem
-        description:
-          This model serves as a staging view for line items, providing detailed
-          information about each line in an order. It includes key identifiers for orders,
-          parts, and suppliers, as well as details on quantity, pricing, discounts, taxes,
-          and shipping instructions. This model is essential for analyzing order components
-          and their fulfillment status.
-        columns:
-          - name: l_orderkey
-            description: A unique identifier for each order.
-          - name: l_partkey
-            description: A unique identifier for each part included in the order.
-          - name: l_suppkey
-            description: A unique identifier for the supplier of the part.
-          - name: l_linenumber
-            description: The line number of the item within the order.
-          - name: l_quantity
-            description: The quantity of the part ordered.
-          - name: l_extendedprice
-            description:
-              The total price for the quantity of parts ordered, before discounts
-              and taxes.
-          - name: l_discount
-            description: The discount applied to the extended price.
-          - name: l_tax
-            description: The tax applied to the extended price after discount.
-          - name: l_returnflag
-            description: Indicates if the item has been returned.
-          - name: l_linestatus
-            description: The current status of the line item.
-          - name: l_shipdate
-            description: The date the item is scheduled to be shipped.
-          - name: l_commitdate
-            description: The date the order was committed.
-          - name: l_receiptdate
-            description: The date the item is expected to be received.
-          - name: l_shipinstruct
-            description: Instructions for shipping the item.
-          - name: l_shipmode
-            description: The mode of shipping for the item.
-          - name: l_comment
-            description: Additional comments regarding the line item.
       - name: nation
         description:
           This model provides a structured view of nations, including their unique
@@ -184,23 +142,3 @@ sources:
             description: The name of the region.
           - name: r_comment
             description: Additional information or comments about the region.
-      - name: supplier
-        description:
-          This model provides a detailed view of suppliers, including their key
-          attributes such as name, address, and contact information. It is used to manage
-          supplier data and facilitate supplier-related operations.
-        columns:
-          - name: s_suppkey
-            description: A unique identifier for each supplier.
-          - name: s_name
-            description: The name of the supplier.
-          - name: s_address
-            description: The address of the supplier.
-          - name: s_nationkey
-            description: A reference to the nation associated with the supplier.
-          - name: s_phone
-            description: The contact phone number of the supplier.
-          - name: s_acctbal
-            description: The current account balance of the supplier.
-          - name: s_comment
-            description: Additional comments or notes about the supplier.

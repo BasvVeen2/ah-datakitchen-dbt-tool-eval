@@ -1,0 +1,31 @@
+models:
+- name: part_supplier
+  description: This model provides a detailed view of parts and their associated suppliers.
+    It includes information about the part's specifications, such as dimensions and
+    materials, as well as supplier details like available quantity and supply cost.
+    This model is useful for analyzing part inventory and supplier relationships.
+  columns:
+  - name: part_key
+    description: A unique identifier for each part.
+  - name: part_name
+    description: The name of the part.
+  - name: manufacturer
+    description: The manufacturer of the part.
+  - name: brand
+    description: The brand of the part.
+  - name: type
+    description: The type or category of the part.
+  - name: size
+    description: The size of the part.
+  - name: container
+    description: The type of container used for the part.
+  - name: retail_price
+    description: The retail price of the part.
+  - name: comment
+    description: Additional comments or notes about the part.
+  - name: specifications
+    description: Detailed specifications of the part, including physical dimensions
+      and material composition.
+  - name: suppliers
+    description: A list of suppliers for the part, including supplier details and
+      supply cost.
