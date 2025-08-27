@@ -1,0 +1,15 @@
+models:
+- name: nation
+  description: This model provides a structured view of nations, including their unique
+    identifiers, names, associated region keys, and any additional comments. It is
+    useful for analyzing and organizing data related to different nations and their
+    regional associations.
+  columns:
+  - name: nation_key
+    description: A unique identifier for each nation.
+  - name: nation_name
+    description: The name of the nation.
+  - name: region_key
+    description: A reference key linking the nation to its region.
+  - name: comment
+    description: Additional comments or notes about the nation.
