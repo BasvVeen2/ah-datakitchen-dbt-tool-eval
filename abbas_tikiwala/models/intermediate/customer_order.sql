@@ -6,18 +6,18 @@
 
 with customer_orders as (
     select
-        customer_id,
-        count(order_id) as total_orders,
-        sum(order_amount) as total_order_amount,
-        avg(order_amount) as average_order_amount
+        customer_key,
+        count(order_key) as total_orders,
+        sum(ordertotal_price_amount) as total_order_amount,
+        avg(total_price) as average_order_amount
     from
         {{ ref('customer') }} as customer
     inner join
         {{ ref('order') }} as orders
     on
-        customer.customer_id = orders.customer_id
+        customer.customer_id = orders.customer_key
     group by
-        customer_id
+        customer_key
 )
 
 select
