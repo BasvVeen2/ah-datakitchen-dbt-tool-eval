@@ -1,0 +1,21 @@
+models:
+- name: top_spenders_mtd
+  description: This model identifies the top spending customers for the month by calculating
+    the total order amount for each customer and ordering them in descending order.
+    It helps in understanding customer spending behavior and identifying high-value
+    customers.
+  columns:
+  - name: customer_name
+    description: The name of the customer who placed the orders.
+  - name: total_order_amount
+    description: The total amount spent by the customer on orders for the month.
+
+  - name: top_spenders_mtd
+    description: This model identifies the top spending customers for the month by calculating the total order amount for each customer and ordering them in descending order. It helps in understanding customer spending behavior and identifying high-value customers.
+    columns:
+      - name: customer_name
+        description: The name of the customer who placed the orders.
+      - name: total_order_amount
+        description: The total amount spent by the customer on orders for the month.
+      - name: latest_order_date
+        description: The most recent date on which the customer placed an order.
