@@ -1,0 +1,52 @@
+models:
+- name: part_supplier
+  description: Intermediate view for part supplier relationships
+  
+  constraints:
+    - type: primary_key
+      columns: [part_key, supplier_key]
+  columns:
+    - name: part_key
+      description: "Unique part identifier"
+    - name: part_name
+      description: "Part name"
+    - name: manufacturer
+      description: "Part manufacturer"
+    - name: brand
+      description: "Part brand"
+    - name: type
+      description: "Part type"
+    - name: size
+      description: "Part size"
+    - name: container
+      description: "Container type"
+    - name: retail_price
+      description: "Retail price of the part"
+    - name: comment
+      description: "Part comments"
+    - name: dimension
+      description: "Dimension of the part"
+    - name: shape
+      description: "Shape of the part"
+    - name: dimension_metric
+      description: "Dimension metric (e.g., cm, inch)"
+    - name: material_category
+      description: "Material category"
+    - name: supplier_key
+      description: "Supplier key reference"
+    - name: supplier_name
+      description: "Name of the supplier"
+    - name: available_quantity
+      description: "Available quantity from the supplier"
+    - name: supply_cost
+      description: "Cost of supply from the supplier"
+    - name: supplier_address
+      description: "Supplier address"
+    - name: supplier_phone
+      description: "Supplier phone number"
+    - name: supplier_cost_tier
+      description: "Cost tier of the supplier (e.g., Budget, Premium)"
+    - name: size_category
+      description: "Derived size category (Small, Medium, Large, Extra Large)"
+    - name: price_category
+      description: "Derived price category (Budget, Standard, Premium, Luxury)"
