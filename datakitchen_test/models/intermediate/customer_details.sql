@@ -1,3 +1,11 @@
+{{ 
+    config(
+        materialized="view",
+        schema="intermediate",
+        file_format="delta"
+        ) 
+}}
+
 WITH customer_address AS (
   SELECT
     customer_key,

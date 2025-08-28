@@ -11,5 +11,6 @@ select
     p_retailprice as retail_price,
     p_comment as comment,
     specifications,
-    suppliers
+    suppliers,
+    current_timestamp() as updated_at
 FROM {{source("tpch", "part_nested")}}

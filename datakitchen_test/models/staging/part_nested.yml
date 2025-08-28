@@ -29,3 +29,5 @@ models:
   - name: suppliers
     description: A list of suppliers for the part, including supplier details and
       supply cost.
+  - name: updated_at
+    description: time when the record was inserted/loaded

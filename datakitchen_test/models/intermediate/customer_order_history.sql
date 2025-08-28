@@ -1,3 +1,11 @@
+{{ 
+    config(
+        materialized="table",
+        schema="intermediate",
+        file_format="delta"
+        ) 
+}}
+
 WITH customer_orders AS (
   SELECT
     oli.customer_key,

@@ -31,3 +31,5 @@ models:
   - name: account_history
     description: A record of the customer's account activities, including dates, event
       types, and amounts.
+  - name: updated_at
+    description: time when the record was inserted/loaded

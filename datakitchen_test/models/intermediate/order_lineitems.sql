@@ -1,3 +1,11 @@
+{{ 
+    config(
+        materialized="table",
+        schema="intermediate",
+        file_format="delta"
+        ) 
+}}
+
 SELECT
     order_key,
     customer_key,

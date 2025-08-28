@@ -15,5 +15,6 @@ select
     c_comment as comment,
     address,
     contact_methods,
-    account_history
+    account_history,
+    current_timestamp() as updated_at
 from {{source("tpch", "customer")}}

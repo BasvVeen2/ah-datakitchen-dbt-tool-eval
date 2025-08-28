@@ -1,3 +1,13 @@
+{{ 
+    config(
+        materialized="incremental",
+        unique_key = "part_key",
+        incremental_strategy='merge',
+        schema="intermediate",
+        file_format="delta"
+        ) 
+}}
+
 SELECT
     ps.part_key,
     ps.part_name,
@@ -35,3 +45,7 @@ SELECT
     END as price_category
 FROM {{ ref('part_nested') }} ps
 LATERAL VIEW EXPLODE(ps.suppliers) suppliers_table AS supplier
+
+{% if is_incremental() %}
+  where updated_at > (select max(updated_at) from {{ this }})
+{% endif %}
