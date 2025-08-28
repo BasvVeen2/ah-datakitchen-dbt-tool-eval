@@ -8,10 +8,16 @@ models:
   columns:
   - name: customer_key
     description: A unique identifier for each customer.
+    constraints:
+      - type: primary_key
   - name: customer_name
     description: The full name of the customer.
   - name: nation_key
     description: A reference to the customer's nation, used for geographical analysis.
+    constraints:
+      - type: foreign_key
+        to: ref('nation')
+        to_columns: [nation_key]
   - name: phone
     description: The customer's phone number for contact purposes.
   - name: account_balance

@@ -12,5 +12,5 @@ select
     p_comment as comment,
     specifications,
     suppliers,
-    current_timestamp() as updated_at
+    current_timestamp() as last_modified
 FROM {{source("tpch", "part_nested")}}

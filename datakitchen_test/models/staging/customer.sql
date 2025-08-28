@@ -16,5 +16,5 @@ select
     address,
     contact_methods,
     account_history,
-    current_timestamp() as updated_at
+    current_timestamp() as last_modified
 from {{source("tpch", "customer")}}

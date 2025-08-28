@@ -13,10 +13,10 @@ select
     contact.type as contact_type,
     contact.value as contact_value,
     contact.is_primary as is_primary_contact_type,
-    updated_at
+    last_modified
 from {{ ref("customer") }}
 lateral view explode(contact_methods) contact_table as contact
 
 {% if is_incremental() %}
-  where updated_at > (select max(updated_at) from {{ this }})
+  where last_modified > (select max(last_modified) from {{ this }})
 {% endif %}

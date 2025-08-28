@@ -42,10 +42,11 @@ SELECT
         WHEN ps.retail_price <= 5000 THEN 'Standard'
         WHEN ps.retail_price <= 10000 THEN 'Premium'
         ELSE 'Luxury'
-    END as price_category
+    END as price_category,
+    current_timestamp() as last_modified
 FROM {{ ref('part_nested') }} ps
 LATERAL VIEW EXPLODE(ps.suppliers) suppliers_table AS supplier
 
 {% if is_incremental() %}
-  where updated_at > (select max(updated_at) from {{ this }})
+  where last_modified > (select max(last_modified) from {{ this }})
 {% endif %}
