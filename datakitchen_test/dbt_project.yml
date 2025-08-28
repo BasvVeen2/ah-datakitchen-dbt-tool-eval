@@ -18,4 +18,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 models:
-  dwh_bootcamp:
+  staging:
+    +access: public     # make all models in staging folder public
+    customer:
+      +access: public
+
+vars:
+  'dbt_date:time_zone': 'Europe/Amsterdam'
