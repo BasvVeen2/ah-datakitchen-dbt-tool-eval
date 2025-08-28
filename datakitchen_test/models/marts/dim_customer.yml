@@ -1,0 +1,42 @@
+models:
+- name: dim_customer
+
+  columns:
+    - name: customer_key
+      description: "Unique customer identifier"
+      constraints:
+        - type: primary_key
+    - name: customer_name
+      description: "Customer business name"
+    - name: nation_key
+      description: "Nation key reference"
+      constraints:
+        - type: foreign_key
+          to: ref('nation')
+          to_columns: [nation_key]
+    - name: account_balance
+      description: "Customer account balance"
+    - name: market_segment
+      description: "Customer market segment (BUILDING, AUTOMOBILE, etc.)"
+    - name: comment
+      description: "Additional comments about the customer"
+    - name: street_number
+      description: "Street number of the customer"
+    - name: street_name
+      description: "Street name of the customer"
+    - name: regionkey
+      description: "Region of the customer"
+    - name: region_comment
+      description: "Comments about the region"
+    - name: countrykey
+      description: "Country of the customer"
+    - name: postal_code
+      description: "Postal code of the customer"
+    - name: primary_phone
+      description: "Primary phone number of the customer"
+    - name: email_address
+      description: "Email address of the customer"
+    - name: customer_tier
+      description: "Customer tier classification"
+    - name: last_modified
+      description: "last modified timestamp"

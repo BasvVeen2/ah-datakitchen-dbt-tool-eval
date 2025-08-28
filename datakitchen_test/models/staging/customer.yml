@@ -39,3 +39,5 @@ models:
       types, and amounts.
   - name: updated_at
     description: time when the record was inserted/loaded
+  - name: last_modified
+    description: "last modified timestamp"
