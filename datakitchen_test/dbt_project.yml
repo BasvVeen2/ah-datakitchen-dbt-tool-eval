@@ -22,3 +22,6 @@ models:
     +access: public     # make all models in staging folder public
     customer:
       +access: public
+
+vars:
+  'dbt_date:time_zone': 'Europe/Amsterdam'
