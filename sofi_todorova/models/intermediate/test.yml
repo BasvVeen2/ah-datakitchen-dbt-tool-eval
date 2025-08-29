@@ -1,0 +1,40 @@
+      - name: order_key
+        description: A unique identifier for each order.
+      - name: order_status
+        description: The current status of the order.
+      - name: order_date
+        description: The date when the order was placed.
+      - name: order_priority
+        description: The priority level of the order, indicating urgency.
+      - name: total_price
+        description: The total price of the order.
+      - name: customer_key
+        description: A unique identifier for each customer, used to join with customer details.
+      - name: phone
+        description: The phone number associated with the customer.
+      - name: account_balance
+        description: The current balance of the customer's account.
+      - name: order_status
+        data_tests:
+          - not_null
+      - name: order_date
+        data_tests:
+          - not_null
+      - name: order_priority
+        data_tests:
+          - not_null
+      - name: total_price
+        data_tests:
+          - not_null
+      - name: customer_key
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('customer')
+              field: customer_key
+      - name: phone
+        data_tests:
+          - not_null
+      - name: account_balance
+        data_tests:
+          - not_null
