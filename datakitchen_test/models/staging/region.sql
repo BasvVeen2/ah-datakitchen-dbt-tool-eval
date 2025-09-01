@@ -1,4 +1,12 @@
-{{ config(materialized="view", schema="staging", file_format='delta',tblproperties = {'delta.enableChangeDataFeed': 'true'}) }}
+{{ 
+    config(
+        materialized="view",
+        schema="staging",
+        file_format='delta',
+        tblproperties = {'delta.enableChangeDataFeed': 'true'},
+        databricks_compute = 'xxs'
+)
+}}
 
 
 SELECT

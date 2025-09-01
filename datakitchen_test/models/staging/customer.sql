@@ -3,7 +3,8 @@
     schema='staging',
     file_format='delta',
     tblproperties = {'delta.enableChangeDataFeed': 'true'},
-    access="public"
+    access="public",
+    databricks_compute='xxs'
 ) }}
 
 select

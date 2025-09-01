@@ -5,7 +5,8 @@
         incremental_strategy='merge',
         partition_by = ['region_key'],
         schema="marts",
-        file_format="delta"
+        file_format="delta",
+        databricks_compute='medium'
         ) 
 }}
 
