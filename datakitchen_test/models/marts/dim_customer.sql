@@ -3,7 +3,7 @@
         materialized="incremental",
         unique_key = "customer_key",
         incremental_strategy='merge',
-        partition_by = {'field': 'region_key', 'data_type': 'integer'},
+        partition_by = ['region_key'],
         schema="marts",
         file_format="delta"
         ) 
@@ -17,7 +17,7 @@ SELECT
     cd.comment,
     cd.street_number,
     cd.street_name,
-    r.region_name as region,
+    r.region_key,
     r.comment AS region_comment,
     n.nation_name as nation,
     n.comment AS nation_comment,

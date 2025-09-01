@@ -1,7 +1,7 @@
 {{ config(
     materialized='incremental',
     incremental_strategy="merge",
-    partition_by = {'field': 'order_date', 'data_type': 'date'},
+    partition_by = ['order_date'],
     unique_key = 'order_key',
     schema='staging',
     file_format='delta',
