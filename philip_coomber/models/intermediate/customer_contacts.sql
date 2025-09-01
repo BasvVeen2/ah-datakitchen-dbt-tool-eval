@@ -5,5 +5,6 @@ select
     contact.type as contact_type,
     contact.value as contact_value,
     contact.is_primary as is_primary_contact_type
+    rand() as my_new_column
 from {{ ref("customer") }}
 lateral view explode(contact_methods) contact_table as contact
