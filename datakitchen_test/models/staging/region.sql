@@ -1,4 +1,4 @@
-{{ config(materialized="view", schema="staging", file_format="delta") }}
+{{ config(materialized="view", schema="staging", file_format='delta',tblproperties = {'delta.enableChangeDataFeed': 'true'}) }}
 
 
 SELECT
