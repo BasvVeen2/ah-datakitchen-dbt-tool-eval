@@ -1,0 +1,28 @@
+models:
+  - name: test1
+    columns:
+      - name: customer_key
+        data_tests:
+          - dbt_expectations.expect_column_values_to_be_null:
+          - row_condition: "id is not null" # (Optional)
+          - unique
+          - not_null
+      - name: customer_name
+        data_tests:
+          - not_null
+      - name: nation_key
+        data_tests:
+          - not_null
+      - name: phone
+        data_tests:
+          - not_null
+      - name: account_balance
+        data_tests:
+          - not_null
+      - name: market_segment
+        data_tests:
+          - not_null
+      - name: comment
+      - name: address
+      - name: contact_methods
+      - name: account_history
