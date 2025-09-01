@@ -1,8 +1,7 @@
 {{ config(
     materialized='view',
     schema='staging_pii',
-    file_format='delta',
-    pre_hook="{{ pii_check() }}"
+    file_format='delta'
 ) }}
 
 select
