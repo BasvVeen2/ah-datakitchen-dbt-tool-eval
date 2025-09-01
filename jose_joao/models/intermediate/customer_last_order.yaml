@@ -1,0 +1,19 @@
+models:
+  - name: customer_last_order
+    columns:
+      - name: customer_key
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        data_tests:
+          - not_null
+      - name: customer_account_balance
+        data_tests:
+          - not_null
+      - name: last_order_date
+        data_tests:
+          - not_null
+      - name: last_order_total_price
+        data_tests:
+          - not_null
