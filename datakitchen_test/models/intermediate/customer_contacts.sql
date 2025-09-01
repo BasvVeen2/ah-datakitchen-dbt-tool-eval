@@ -49,7 +49,7 @@ SELECT
 FROM previous_state ps
     FULL JOIN current_state cs ON ps.customer_key = cs.customer_key
 
-{%- else -%%}
+{% else %}
 select
     customer_key,
     contact.type as contact_type,
