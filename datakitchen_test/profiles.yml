@@ -1,4 +1,4 @@
-profile-name:
+default:
   target: prod # this is the default target
   outputs:
     prod:
