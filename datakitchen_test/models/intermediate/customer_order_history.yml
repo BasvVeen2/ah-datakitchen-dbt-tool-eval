@@ -1,0 +1,41 @@
+models:
+- name: customer_order_history
+  description: Customer order history with detailed metrics
+  
+  columns:
+    - name: order_key
+      description: "Unique order identifier"
+      constraints:
+        - type: primary_key
+    - name: customer_key
+      description: "Reference to customer"
+      constraints:
+        - type: foreign_key
+          to: ref('order_lineitems')
+          to_columns: [customer_key]
+    - name: order_date
+      description: "Order date"
+    - name: final_price
+      description: "Final order price"
+    - name: quantity
+      description: "Quantity of the part ordered"
+    - name: part_key
+      description: "Part key reference"
+    - name: total_orders
+      description: "Total number of orders placed by the customer"
+    - name: cumulative_spend
+      description: "Total amount spent by the customer up to the current order"
+    - name: days_since_last_order
+      description: "Number of days since the last order was placed"
+    - name: days_to_next_order
+      description: "Number of days until the next order is expected"
+    - name: avg_order_frequency_days
+      description: "Average frequency of orders placed by the customer"
+    - name: moving_avg_order_value_3
+      description: "Moving average order value over the last 3 orders"
+    - name: lifecycle_stage
+      description: "Customer lifecycle stage based on order history"
+    - name: order_frequency_category
+      description: "Category of order frequency"
+    - name: potential_churn_flag
+      description: "Flag indicating potential churn risk"

@@ -1,3 +1,12 @@
+{{ 
+    config(
+        materialized="view",
+        schema="intermediate",
+        file_format='delta',
+        tblproperties = {'delta.enableChangeDataFeed': 'true'}
+        ) 
+}}
+
 WITH customer_address AS (
   SELECT
     customer_key,
@@ -12,7 +21,8 @@ WITH customer_address AS (
     address.street_name,
     address.location.regionkey,
     address.location.countrykey,
-    address.location.postal_code
+    address.location.postal_code,
+    current_timestamp() as last_modified
   FROM {{ ref('customer') }}
 )
 

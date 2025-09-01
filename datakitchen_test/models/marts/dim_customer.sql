@@ -1,3 +1,14 @@
+{{ 
+    config(
+        materialized="incremental",
+        unique_key = "customer_key",
+        incremental_strategy='merge',
+        partition_by = {'field': 'region_key', 'data_type': 'integer'},
+        schema="marts",
+        file_format="delta"
+        ) 
+}}
+
 SELECT
     cd.customer_key,
     cd.customer_name,
@@ -19,7 +30,7 @@ SELECT
         WHEN cd.account_balance > 5000 THEN 'Premium'
         WHEN cd.account_balance > 1000 THEN 'Standard'
         ELSE 'Basic'
-    END as customer_tier
+    END as customer_tier,
 FROM {{ ref('customer_details') }} cd
 INNER JOIN {{ ref('customer_contacts') }} cc_primary
     ON cd.customer_key = cc_primary.customer_key
@@ -32,3 +43,8 @@ INNER JOIN {{ ref('region') }} r
     ON cd.regionkey = r.region_key
 INNER JOIN {{ ref('nation') }} n
     ON cd.countrykey = n.nation_key
+
+{% if is_incremental() %}
+  where cd.last_modified > (select max(last_modified) from {{ this }})
+    OR cc_primary.last_modified > (select max(last_modified) from {{ this }})
+{% endif %}
