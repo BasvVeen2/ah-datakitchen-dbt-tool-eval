@@ -3,7 +3,7 @@
     schema='staging',
     file_format='delta',
     tblproperties = {'delta.enableChangeDataFeed': 'true'},
-    databricks_compute='xxs'
+    databricks_compute='dbt-platform-xxs'
 ) }}
 
 SELECT
