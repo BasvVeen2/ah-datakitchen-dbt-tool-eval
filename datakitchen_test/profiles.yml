@@ -1,7 +1,7 @@
 profile-name:
-  target: PROD # this is the default target
+  target: prod # this is the default target
   outputs:
-    target-name:
+    prod:
       type: databricks
       catalog: alh_nonprd_soubhik
       schema: default # Required        
