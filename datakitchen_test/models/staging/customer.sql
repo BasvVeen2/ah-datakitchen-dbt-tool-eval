@@ -18,4 +18,4 @@ select
     contact_methods,
     account_history,
     current_timestamp() as last_modified
-from {{source("tpch", "customer")}}
+from {{source("tpch", "customer_nested")}}
