@@ -38,5 +38,3 @@ models:
       description: "Email address of the customer"
     - name: customer_tier
       description: "Customer tier classification"
-    - name: last_modified
-      description: "last modified timestamp"

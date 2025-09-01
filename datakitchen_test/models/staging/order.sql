@@ -1,9 +1,10 @@
 {{ config(
     materialized='incremental',
     incremental_strategy="append",
-    partition_by = {'field': 'order_date', 'data_type': 'date'}
+    partition_by = {'field': 'order_date', 'data_type': 'date'},
     schema='staging',
-    file_format='delta'
+    file_format='delta',
+    tblproperties = {'delta.enableChangeDataFeed': 'true'}
 ) }}
 
 

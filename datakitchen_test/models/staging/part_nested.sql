@@ -1,4 +1,5 @@
-{{ config(materialized="view", schema="staging", file_format="delta") }}
+{{ config(materialized="view", schema="staging", file_format="delta", tblproperties = {'delta.enableChangeDataFeed': 'true'}
+) }}
 
 select
     p_partkey as part_key,

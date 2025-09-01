@@ -2,7 +2,7 @@
     config(
         materialized="incremental",
         incremental_strategy="insert_overwrite",
-        partition_by = {'field': 'order_date', 'data_type': 'date'}
+        partition_by = {'field': 'order_date', 'data_type': 'date'},
         schema="intermediate",
         file_format="delta"
         ) 

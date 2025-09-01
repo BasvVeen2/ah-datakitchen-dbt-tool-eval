@@ -2,7 +2,8 @@
     config(
         materialized="view",
         schema="intermediate",
-        file_format="delta"
+        file_format='delta',
+        tblproperties = {'delta.enableChangeDataFeed': 'true'}
         ) 
 }}
 

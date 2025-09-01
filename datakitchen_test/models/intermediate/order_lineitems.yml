@@ -49,5 +49,3 @@ models:
     description: "Discounted price for the line item"
   - name: final_price
     description: "Final price for the line item after discount and tax"
-  - name: last_modified
-    description: "last modified timestamp"
