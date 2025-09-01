@@ -6,12 +6,18 @@ models:
   columns:
   - name: supplier_key
     description: A unique identifier for each supplier.
+    constraints:
+      - type: primary_key
   - name: supplier_name
     description: The name of the supplier.
   - name: address
     description: The address of the supplier.
   - name: nation_key
     description: A reference to the nation associated with the supplier.
+    constraints:
+      - type: foreign_key
+        to: ref('nation')
+        to_columns: [nation_key]
   - name: phone
     description: The contact phone number of the supplier.
   - name: account_balance

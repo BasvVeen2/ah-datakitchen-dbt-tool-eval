@@ -1,7 +1,10 @@
 {{ config(
-    materialized='view',
+    materialized='incremental',
+    incremental_strategy="merge",
+    partition_by = {'field': 'order_date', 'data_type': 'date'},
     schema='staging',
-    file_format='delta'
+    file_format='delta',
+    tblproperties = {'delta.enableChangeDataFeed': 'true'}
 ) }}
 
 
@@ -16,5 +19,11 @@ SELECT
     o_shippriority as ship_priority,
     o_comment as comment,
     shipping_info,
-    line_items
+    line_items,
+    current_timestamp() as last_modified
+    
 FROM {{source("tpch", "order")}}
+
+{% if is_incremental() %}
+  where order_date > (select max(last_modified) from {{ this }})
+{% endif %}
