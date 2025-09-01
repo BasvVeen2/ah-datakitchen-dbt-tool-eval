@@ -1,6 +1,8 @@
 {{ 
     config(
-        materialized="table",
+        materialized="incremental",
+        incremental_strategy="insert_overwrite",
+        partition_by = {'field': 'order_date', 'data_type': 'date'}
         schema="intermediate",
         file_format="delta"
         ) 
@@ -27,6 +29,7 @@ SELECT
     line_item.shipment_details.transit_days,
     -- Calculate derived fields
     CAST(line_item.extended_price * (1 - line_item.discount) AS decimal(15,2)) as discounted_price,
-    CAST(line_item.extended_price * (1 - line_item.discount) * (1 + line_item.tax) AS decimal(15,2)) as final_price
+    CAST(line_item.extended_price * (1 - line_item.discount) * (1 + line_item.tax) AS decimal(15,2)) as final_price,
+    current_timestamp() as last_modified
 FROM {{ ref('order') }}
 LATERAL VIEW EXPLODE(line_items) line_items_table AS line_item
