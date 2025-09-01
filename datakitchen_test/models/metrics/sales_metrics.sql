@@ -1,3 +1,12 @@
+{{ 
+    config(
+        materialized="table",
+        schema="metrics",
+        file_format="delta",
+        databricks_compute='small'
+        ) 
+}}
+
 SELECT
   d.region,
   order_date,

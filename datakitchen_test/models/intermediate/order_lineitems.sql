@@ -4,7 +4,9 @@
         incremental_strategy="insert_overwrite",
         partition_by = ['order_date'],
         schema="intermediate",
-        file_format="delta"
+        tblproperties = {'delta.enableChangeDataFeed': 'true'},
+        file_format="delta",
+        databricks_compute='medium'
         ) 
 }}
 
