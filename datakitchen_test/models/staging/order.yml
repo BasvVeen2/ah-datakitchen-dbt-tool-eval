@@ -38,3 +38,4 @@ models:
   - name: line_items
     description: An array of line items in the order, detailing each product, supplier,
       and associated costs.
+  - name: last_modified

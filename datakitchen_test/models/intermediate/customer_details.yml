@@ -33,3 +33,4 @@ models:
       description: "Country of the customer"
     - name: postal_code
       description: "Postal code of the customer"
+    - name: last_modified

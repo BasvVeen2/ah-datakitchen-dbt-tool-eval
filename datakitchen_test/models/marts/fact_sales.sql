@@ -33,5 +33,6 @@ INNER JOIN {{ ref('part_supplier') }} ps
     AND oli.supplier_key = ps.supplier_key
 
 {% if is_incremental() %}
-  where last_modified > (select max(last_modified) from {{ this }})
+  where oli.last_modified > (select max(last_modified) from {{ this }})
+    OR ps.last_modified > (select max(last_modified) from {{ this }})
 {% endif %}

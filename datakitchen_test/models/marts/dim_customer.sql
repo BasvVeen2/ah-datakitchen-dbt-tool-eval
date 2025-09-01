@@ -43,3 +43,8 @@ INNER JOIN {{ ref('region') }} r
     ON cd.regionkey = r.region_key
 INNER JOIN {{ ref('nation') }} n
     ON cd.countrykey = n.nation_key
+
+{% if is_incremental() %}
+  where cd.last_modified > (select max(last_modified) from {{ this }})
+    OR cc_primary.last_modified > (select max(last_modified) from {{ this }})
+{% endif %}
