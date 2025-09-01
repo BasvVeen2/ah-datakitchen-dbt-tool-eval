@@ -31,6 +31,7 @@ SELECT
         WHEN cd.account_balance > 1000 THEN 'Standard'
         ELSE 'Basic'
     END as customer_tier,
+    current_timestamp() as last_modified
 FROM {{ ref('customer_details') }} cd
 INNER JOIN {{ ref('customer_contacts') }} cc_primary
     ON cd.customer_key = cc_primary.customer_key
