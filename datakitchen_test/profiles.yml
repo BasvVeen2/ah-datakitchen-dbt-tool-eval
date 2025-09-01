@@ -1,7 +1,7 @@
-default:
-  target: prod # this is the default target
+prod:
+  target: default # this is the default target
   outputs:
-    prod:
+    default:
       type: databricks
       catalog: alh_nonprd_soubhik
       schema: default # Required        
