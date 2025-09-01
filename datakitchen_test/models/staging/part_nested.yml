@@ -1,5 +1,5 @@
 models:
-- name: part_supplier
+- name: part_nested
   description: This model provides a detailed view of parts and their associated suppliers.
     It includes information about the part's specifications, such as dimensions and
     materials, as well as supplier details like available quantity and supply cost.

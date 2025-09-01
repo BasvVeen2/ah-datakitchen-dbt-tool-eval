@@ -9,11 +9,11 @@
 }}
 
 SELECT
-    order_key,
-    customer_key,
-    order_date,
-    total_price,
-    order_status,
+    o.order_key,
+    o.customer_key,
+    o.order_date,
+    o.total_price,
+    o.order_status,
     -- Unnesting line items array
     line_item.part_key,
     line_item.supplier_key,
@@ -31,5 +31,9 @@ SELECT
     CAST(line_item.extended_price * (1 - line_item.discount) AS decimal(15,2)) as discounted_price,
     CAST(line_item.extended_price * (1 - line_item.discount) * (1 + line_item.tax) AS decimal(15,2)) as final_price,
     current_timestamp() as last_modified
-FROM {{ ref('order') }}
+FROM {{ ref('order') }} o
 LATERAL VIEW EXPLODE(line_items) line_items_table AS line_item
+
+{% if is_incremental() %}
+    WHERE o.last_modified > (select max(last_modified) from {{ this }})
+{% endif %}
