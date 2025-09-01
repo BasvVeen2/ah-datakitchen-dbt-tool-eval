@@ -19,5 +19,5 @@ from {{ ref("customer") }} c
 lateral view explode(contact_methods) contact_table as contact
 
 {% if is_incremental() %}
-    WHERE c.last_modified > >= (select max(last_modified) from {{ this }})
+    WHERE c.last_modified > (select max(last_modified) from {{ this }})
 {% endif %}
