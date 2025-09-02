@@ -5,7 +5,7 @@ models:
       columns: [regionkey, order_date]
 
   columns:
-    - name: region_key
+    - name: regionkey
       description: "Region key"
     - name: order_date
       description: "Order date"
