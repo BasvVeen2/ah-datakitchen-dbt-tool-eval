@@ -2,6 +2,7 @@
     config(
         materialized='incremental',
         incremental_strategy="merge",
+        unique_key=['region_key'],
         schema="staging",
         file_format='delta',
         tblproperties = {'delta.enableChangeDataFeed': 'true'}
