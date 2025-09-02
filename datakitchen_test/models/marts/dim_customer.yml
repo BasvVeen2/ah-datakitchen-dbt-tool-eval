@@ -6,8 +6,6 @@ models:
       description: "Unique customer identifier"
       constraints:
         - type: primary_key
-      data_tests:
-        - not_null
     - name: customer_name
       description: "Customer business name"
     - name: nation_key

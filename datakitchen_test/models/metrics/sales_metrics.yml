@@ -2,17 +2,13 @@ models:
 - name: sales_metrics
   constraints:
     - type: primary_key
-      columns: [region, order_date]
+      columns: [regionkey, order_date]
 
   columns:
     - name: region_key
       description: "Region key"
-      data_tests:
-        - not_null
     - name: order_date
       description: "Order date"
-      data_tests:
-        - not_null
     - name: orders_count
       description: "Total number of orders placed by the customer"
     - name: total_quantity

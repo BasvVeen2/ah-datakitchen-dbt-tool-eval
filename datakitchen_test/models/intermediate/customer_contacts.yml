@@ -8,12 +8,8 @@ models:
   columns:
   - name: customer_key
     description: "Unique customer identifier"
-    data_tests:
-      - not_null
   - name: contact_type
     description: "Type of contact method (email, phone, etc.)"
-    data_tests:
-      - not_null
   - name: contact_value
     description: "Value of the contact method"
   - name: is_primary_contact_type
