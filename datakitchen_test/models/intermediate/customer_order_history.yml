@@ -7,12 +7,17 @@ models:
       description: "Unique order identifier"
       constraints:
         - type: primary_key
+      data_tests:
+      - unique
+      - not_null
     - name: customer_key
       description: "Reference to customer"
       constraints:
         - type: foreign_key
           to: ref('order_lineitems')
           to_columns: [customer_key]
+      data_tests:
+      - not_null
     - name: order_date
       description: "Order date"
     - name: final_price

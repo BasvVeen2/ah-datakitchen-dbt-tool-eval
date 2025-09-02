@@ -7,6 +7,9 @@ models:
       description: "Unique customer identifier"
       constraints:
         - type: primary_key
+      data_tests:
+        - unique
+        - not_null
     - name: customer_name
       description: "Customer business name"
     - name: nation_key
@@ -15,6 +18,8 @@ models:
         - type: foreign_key
           to: ref('nation')
           to_columns: [nation_key]
+      data_tests:
+      - not_null
     - name: phone
       description: "Customer phone number"
     - name: account_balance

@@ -8,6 +8,9 @@ models:
   columns:
   - name: order_key
     description: "Unique order identifier"
+    data_tests:
+      - unique
+      - not_null
   - name: customer_key
     description: "Reference to customer"
     data_type: bigint
@@ -27,6 +30,8 @@ models:
     description: "Supplier key reference"
   - name: linenumber
     description: "Line number within order"
+    data_tests:
+      - not_null
   - name: quantity
     description: "Quantity of the part ordered"
   - name: extended_price

@@ -8,6 +8,9 @@ models:
   columns:
     - name: part_key
       description: "Unique part identifier"
+      data_tests:
+        - unique
+        - not_null
     - name: part_name
       description: "Part name"
     - name: manufacturer
@@ -34,6 +37,8 @@ models:
       description: "Material category"
     - name: supplier_key
       description: "Supplier key reference"
+      data_tests:
+        - not_null
     - name: supplier_name
       description: "Name of the supplier"
     - name: available_quantity
