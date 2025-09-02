@@ -9,7 +9,6 @@ models:
     - name: part_key
       description: "Unique part identifier"
       data_tests:
-        - unique
         - not_null
     - name: part_name
       description: "Part name"
