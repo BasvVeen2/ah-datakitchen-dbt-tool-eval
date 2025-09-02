@@ -3,7 +3,7 @@
         materialized="incremental",
         unique_key="order_key",
         incremental_strategy="merge",
-        partition_by={"field": "order_date", "data_type": "date"},
+        partition_by=["order_date"],
         schema="marts",
         file_format="delta"
     ) 
