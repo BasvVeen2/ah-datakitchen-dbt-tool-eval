@@ -1,11 +1,13 @@
 models:
 - name: fact_sales
 
+  constraints:
+    - type: primary_key
+      columns: [order_key, linenumber]
+
   columns:
     - name: order_key
       description: "Unique order identifier"
-      constraints:
-        - type: primary_key
       data_tests:
         - not_null
     - name: customer_key
@@ -17,6 +19,7 @@ models:
       description: "Part key reference"
     - name: supplier_key
       description: "Supplier key reference"
+    - name: linenumber
     - name: order_date
       description: "Order date"
     - name: ship_date

@@ -1,7 +1,7 @@
 {{ 
     config(
         materialized="incremental",
-        unique_key="order_key",
+        unique_key=['order_key','linenumber'],
         incremental_strategy="merge",
         partition_by=["order_date"],
         schema="marts",
@@ -14,6 +14,7 @@ SELECT
     oli.customer_key,
     oli.part_key,
     oli.supplier_key,
+    oli.linenumber,
     oli.order_date,
     oli.ship_date,
     oli.quantity,
