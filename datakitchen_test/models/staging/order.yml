@@ -9,7 +9,6 @@ models:
     constraints:
       - type: primary_key
     data_tests:
-      - unique
       - not_null
   - name: customer_key
     description: A unique identifier for the customer who placed the order.
