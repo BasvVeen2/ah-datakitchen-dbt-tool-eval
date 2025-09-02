@@ -5,7 +5,7 @@ models:
       columns: [region, order_date]
 
   columns:
-    - name: region
+    - name: region_key
       description: "Region key"
       data_tests:
         - not_null

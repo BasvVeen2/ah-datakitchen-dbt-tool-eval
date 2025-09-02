@@ -7,7 +7,7 @@
 }}
 
 SELECT
-  d.region,
+  d.region_key,
   order_date,
   COUNT(DISTINCT order_key) as orders_count,
   CAST(SUM(quantity) AS decimal(15,2)) as total_quantity,
