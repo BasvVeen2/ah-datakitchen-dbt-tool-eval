@@ -6,6 +6,9 @@ models:
       description: "Unique order identifier"
       constraints:
         - type: primary_key
+      data_tests:
+        - unique
+        - not_null
     - name: customer_key
       description: "Reference to customer"
       constraints:

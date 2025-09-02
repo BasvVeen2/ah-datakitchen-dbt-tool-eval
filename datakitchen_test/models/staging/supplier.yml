@@ -8,6 +8,9 @@ models:
     description: A unique identifier for each supplier.
     constraints:
       - type: primary_key
+    data_tests:
+      - unique
+      - not_null
   - name: supplier_name
     description: The name of the supplier.
   - name: address
