@@ -17,10 +17,9 @@ SELECT
     cd.comment,
     cd.street_number,
     cd.street_name,
-    r.region_key,
+    cd.regionkey,
     r.comment AS region_comment,
-    n.nation_name as nation,
-    n.comment AS nation_comment,
+    cd.countrykey,
     cd.postal_code,
     -- Get primary contact info
     cc_primary.contact_value as primary_phone,
@@ -42,8 +41,6 @@ INNER JOIN {{ ref('customer_contacts') }} cc_email
     AND cc_email.contact_type = 'email'
 INNER JOIN {{ ref('region') }} r 
     ON cd.regionkey = r.region_key
-INNER JOIN {{ ref('nation') }} n
-    ON cd.countrykey = n.nation_key
 
 {% if is_incremental() %}
   where cd.last_modified > (select max(last_modified) from {{ this }})
