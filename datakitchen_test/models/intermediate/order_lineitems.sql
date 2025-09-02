@@ -2,7 +2,7 @@
     config(
         materialized="incremental",
         partition_by = ['order_date'],
-        unique_key=['order_key','linenumber']
+        unique_key=['order_key','linenumber'],
         schema="intermediate",
         tblproperties = {'delta.enableChangeDataFeed': 'true'},
         file_format="delta"
