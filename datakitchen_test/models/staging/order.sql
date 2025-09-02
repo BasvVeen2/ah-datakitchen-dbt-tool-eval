@@ -23,10 +23,11 @@ WITH ranked_orders AS (
         line_items,
         current_timestamp() as last_modified,
         ROW_NUMBER() OVER (PARTITION BY o_orderkey ORDER BY o_orderdate desc) AS row_num
-    FROM {{source("tpch", "order")}}
-    {% if is_incremental() %}
-        where o_orderdate > (select max(last_modified) from {{ this }})
-    {% endif %}
+    FROM {{source("tpch", "order")}} s
+        {% if is_incremental() %}
+        LEFT OUTER JOIN {{ this}} t ON t.order_key = s.o_orderkey
+        WHERE t.order_key IS NULL OR s.o_orderdate > t.order_date
+        {% endif %}
 )
 SELECT
     order_key,
@@ -43,5 +44,3 @@ SELECT
     last_modified
 FROM ranked_orders
 WHERE row_num = 1;
-
-
