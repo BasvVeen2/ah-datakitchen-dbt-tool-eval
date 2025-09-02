@@ -1,6 +1,7 @@
 {{ 
     config(
-        materialized="view",
+        materialized='incremental',
+        incremental_strategy="merge",
         schema="staging",
         file_format='delta',
         tblproperties = {'delta.enableChangeDataFeed': 'true'}
