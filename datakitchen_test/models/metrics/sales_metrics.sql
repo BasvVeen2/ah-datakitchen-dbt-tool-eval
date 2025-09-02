@@ -20,4 +20,4 @@ SELECT
 FROM {{ ref("fact_sales")}} f
 INNER JOIN {{ ref("dim_customer")}} d
     ON f.customer_key = d.customer_key
-GROUP BY d.region, order_date
+GROUP BY d.region_key, order_date
