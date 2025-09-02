@@ -5,8 +5,7 @@
         incremental_strategy='merge',
         tblproperties = {'delta.enableChangeDataFeed': 'true'},
         schema="intermediate",
-        file_format="delta",
-        databricks_compute='small'
+        file_format="delta"
         ) 
 }}
 

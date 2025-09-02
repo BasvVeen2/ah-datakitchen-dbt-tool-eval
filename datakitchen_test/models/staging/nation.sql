@@ -2,8 +2,7 @@
     materialized='view',
     schema='staging',
     file_format='delta',
-    tblproperties = {'delta.enableChangeDataFeed': 'true'},
-    databricks_compute='dbt-platform-xxs'
+    tblproperties = {'delta.enableChangeDataFeed': 'true'}
 ) }}
 
 SELECT

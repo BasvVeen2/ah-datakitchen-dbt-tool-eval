@@ -5,8 +5,7 @@
         partition_by = ['order_date'],
         schema="intermediate",
         tblproperties = {'delta.enableChangeDataFeed': 'true'},
-        file_format="delta",
-        databricks_compute='medium'
+        file_format="delta"
         ) 
 }}
 

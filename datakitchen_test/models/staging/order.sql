@@ -5,8 +5,7 @@
     unique_key = 'order_key',
     schema='staging',
     file_format='delta',
-    tblproperties = {'delta.enableChangeDataFeed': 'true'},
-    databricks_compute = 'medium'
+    tblproperties = {'delta.enableChangeDataFeed': 'true'}
 ) }}
 
 
