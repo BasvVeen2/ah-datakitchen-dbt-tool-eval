@@ -3,7 +3,7 @@
         materialized="incremental",
         unique_key = "customer_key",
         incremental_strategy='merge',
-        partition_by = ['region_key'],
+        partition_by = ['regionkey'],
         schema="marts",
         file_format="delta"
         ) 
