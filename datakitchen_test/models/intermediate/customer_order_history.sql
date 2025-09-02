@@ -2,8 +2,7 @@
     config(
         materialized="table",
         schema="intermediate",
-        file_format="delta",
-        databricks_compute='small'
+        file_format="delta"
         ) 
 }}
 

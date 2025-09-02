@@ -5,8 +5,7 @@
         incremental_strategy="merge",
         partition_by={"field": "order_date", "data_type": "date"},
         schema="marts",
-        file_format="delta",
-        databricks_compute='medium'
+        file_format="delta"
     ) 
 }}
 

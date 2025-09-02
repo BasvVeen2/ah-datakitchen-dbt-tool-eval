@@ -3,8 +3,7 @@
         materialized="view",
         schema="intermediate",
         file_format='delta',
-        tblproperties = {'delta.enableChangeDataFeed': 'true'},
-        databricks_compute='xxs'
+        tblproperties = {'delta.enableChangeDataFeed': 'true'}
         ) 
 }}
 
