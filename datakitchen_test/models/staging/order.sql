@@ -26,5 +26,5 @@ SELECT
 FROM {{source("tpch", "order")}}
 
 {% if is_incremental() %}
-  where order_date > (select max(last_modified) from {{ this }})
+  where o_orderdate > (select max(last_modified) from {{ this }})
 {% endif %}
