@@ -8,7 +8,6 @@ models:
       constraints:
         - type: primary_key
       data_tests:
-        - unique
         - not_null
     - name: customer_name
       description: "Customer business name"

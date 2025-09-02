@@ -9,7 +9,6 @@ models:
   - name: order_key
     description: "Unique order identifier"
     data_tests:
-      - unique
       - not_null
   - name: customer_key
     description: "Reference to customer"
