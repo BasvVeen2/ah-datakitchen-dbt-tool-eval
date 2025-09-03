@@ -10,17 +10,17 @@
 
 WITH ranked_orders AS (
     SELECT
-        o_orderkey as order_key,
-        o_custkey as customer_key,
-        o_orderstatus as order_status,
-        o_totalprice as total_price,
-        o_orderdate as order_date,
-        o_orderpriority as order_priority,
-        o_clerk as clerk,
-        o_shippriority as ship_priority,
-        o_comment as comment,
-        shipping_info,
-        line_items,
+        s.o_orderkey as order_key,
+        s.o_custkey as customer_key,
+        s.o_orderstatus as order_status,
+        s.o_totalprice as total_price,
+        s.o_orderdate as order_date,
+        s.o_orderpriority as order_priority,
+        s.o_clerk as clerk,
+        s.o_shippriority as ship_priority,
+        s.o_comment as comment,
+        s.shipping_info,
+        s.line_items,
         current_timestamp() as last_modified,
         ROW_NUMBER() OVER (PARTITION BY o_orderkey ORDER BY o_orderdate desc) AS row_num
     FROM {{source("tpch", "order")}} s
