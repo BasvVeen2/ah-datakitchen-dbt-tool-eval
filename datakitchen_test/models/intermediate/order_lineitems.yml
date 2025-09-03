@@ -1,0 +1,55 @@
+models:
+- name: order_lineitems
+  description: Intermediate model for lineitem transactions
+  
+  constraints:
+    - type: primary_key
+      columns: [order_key, linenumber]
+  columns:
+  - name: order_key
+    description: "Unique order identifier"
+    data_tests:
+      - not_null
+  - name: customer_key
+    description: "Reference to customer"
+    data_type: bigint
+    constraints:
+      - type: foreign_key
+        to: ref('customer')
+        to_columns: [customer_key]
+  - name: order_date
+    description: "Order date"
+  - name: total_price
+    description: "Total order price"
+  - name: order_status
+    description: "Order status (O=Open, F=Finished, P=Partial)"
+  - name: part_key
+    description: "Part key reference"
+  - name: supplier_key
+    description: "Supplier key reference"
+  - name: linenumber
+    description: "Line number within order"
+    data_tests:
+      - not_null
+  - name: quantity
+    description: "Quantity of the part ordered"
+  - name: extended_price
+    description: "Extended price for the line item"
+  - name: discount
+    description: "Discount applied to the line item"
+  - name: tax
+    description: "Tax applied to the line item"
+  - name: line_status
+    description: "Status of the line item (e.g., shipped, pending)"
+  - name: ship_date
+    description: "Date the line item was shipped"
+  - name: ship_mode
+    description: "Shipping mode (air, ground, etc.)"
+  - name: receipt_date
+    description: "Date the shipment was received"
+  - name: transit_days
+    description: "Number of days in transit"
+  - name: discounted_price
+    description: "Discounted price for the line item"
+  - name: final_price
+    description: "Final price for the line item after discount and tax"

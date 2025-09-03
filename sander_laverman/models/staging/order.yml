@@ -32,3 +32,6 @@ models:
   - name: line_items
     description: An array of line items in the order, detailing each product, supplier,
       and associated costs.
+  - name: line_items.part_key
+    description: "Part key reference"
+    data_type: bigint

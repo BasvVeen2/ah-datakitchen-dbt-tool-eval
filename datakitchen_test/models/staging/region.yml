@@ -6,6 +6,11 @@ models:
   columns:
   - name: region_key
     description: A unique identifier for each region.
+    constraints:
+      - type: primary_key
+    data_tests:
+      - unique
+      - not_null
   - name: region_name
     description: The name of the region.
   - name: comment

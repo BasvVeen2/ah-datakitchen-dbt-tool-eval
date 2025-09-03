@@ -1,0 +1,22 @@
+models:
+- name: customer_contacts
+  description: This model extracts and organizes customer contact information, including
+    the type and value of each contact method, and identifies the primary contact
+    type for each customer. It is useful for understanding customer communication
+    preferences and ensuring accurate contact details are maintained.
+  columns:
+  - name: customer_key
+    description: A unique identifier for each customer.
+    constraints:
+      - type: primary_key
+  - name: contact_type
+    description: The type of contact method, such as email or phone.
+  - name: contact_value
+    description: The actual contact information, such as an email address or phone
+      number.
+  - name: is_primary_contact_type
+    description: Indicates whether this contact method is the primary one for the
+      customer.
+  - name: my_new_column
+    description: A randomly generated number for each row, used for testing or sampling
+      purposes.

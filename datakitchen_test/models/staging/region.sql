@@ -1,4 +1,16 @@
-{{ config(materialized="view", schema="staging", file_format="delta") }}
+{{ 
+    config(
+        materialized='incremental',
+        incremental_strategy="merge",
+        unique_key=['region_key'],
+        target_alias='t',
+        source_alias='s',
+        matched_condition='(t.region_name <> s.region_name OR t.r_comment <> s.r_comment)',
+        schema="staging",
+        file_format='delta',
+        tblproperties = {'delta.enableChangeDataFeed': 'true'}
+)
+}}
 
 
 SELECT

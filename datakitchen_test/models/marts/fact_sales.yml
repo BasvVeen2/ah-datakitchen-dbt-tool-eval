@@ -1,0 +1,44 @@
+models:
+- name: fact_sales
+
+  constraints:
+    - type: primary_key
+      columns: [order_key, linenumber]
+
+  columns:
+    - name: order_key
+      description: "Unique order identifier"
+    - name: customer_key
+      description: "Reference to customer"
+      constraints:
+        - type: foreign_key
+          expression: staging.customers.customer_key
+    - name: part_key
+      description: "Part key reference"
+    - name: supplier_key
+      description: "Supplier key reference"
+    - name: linenumber
+    - name: order_date
+      description: "Order date"
+    - name: ship_date
+      description: "Ship date"
+    - name: quantity
+      description: "Quantity of the part ordered"
+    - name: extended_price
+      description: "Extended price for the line item"
+    - name: discount
+      description: "Discount applied to the line item"
+    - name: tax
+      description: "Tax applied to the line item"
+    - name: discounted_price
+      description: "Discounted price for the line item"
+    - name: final_price
+      description: "Final price for the line item after discount and tax"
+    - name: transit_days
+      description: "Number of days in transit"
+    - name: gross_profit
+      description: "Gross profit for the line item"
+    - name: order_to_ship_days
+      description: "Number of days from order to shipment"
+    - name: last_modified
+      description: "last modified timestamp"

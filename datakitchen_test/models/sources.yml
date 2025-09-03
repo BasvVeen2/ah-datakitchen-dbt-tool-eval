@@ -4,7 +4,7 @@ sources:
     database: alh_dk_dbt_test_tpch
     schema: raw
     tables:
-      - name: customer
+      - name: customer_nested
         identifier: customer_nested
         description:
           This model provides a detailed view of customer information, including

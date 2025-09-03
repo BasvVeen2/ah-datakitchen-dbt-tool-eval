@@ -97,6 +97,9 @@ sources:
             description:
               An array of line items in the order, detailing each product, supplier,
               and associated costs.
+          - name: line_items.part_key
+            description: "Part key reference"
+            data_type: bigint
       - name: part_nested
         description:
           This model provides a detailed view of parts and their associated suppliers.

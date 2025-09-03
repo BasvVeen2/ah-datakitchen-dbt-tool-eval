@@ -1,0 +1,27 @@
+models:
+- name: sales_metrics
+  constraints:
+    - type: primary_key
+      columns: [regionkey, order_date]
+
+  columns:
+    - name: regionkey
+      description: "Region key"
+    - name: order_date
+      description: "Order date"
+    - name: orders_count
+      description: "Total number of orders placed by the customer"
+    - name: total_quantity
+      description: "Total quantity of items sold"
+    - name: gross_sales
+      description: "Total gross sales amount"
+    - name: net_sales
+      description: "Total net sales amount"
+    - name: total_revenue
+      description: "Total revenue amount"
+    - name: total_gross_profit
+      description: "Total gross profit amount"
+    - name: avg_discount_rate
+      description: "Average discount rate"
+    - name: avg_fulfillment_days
+      description: "Average fulfillment days"

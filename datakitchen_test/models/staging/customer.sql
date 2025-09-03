@@ -2,6 +2,7 @@
     materialized='view',
     schema='staging',
     file_format='delta',
+    tblproperties = {'delta.enableChangeDataFeed': 'true'},
     access="public"
 ) }}
 
@@ -15,5 +16,6 @@ select
     c_comment as comment,
     address,
     contact_methods,
-    account_history
-from {{source("tpch", "customer")}}
+    account_history,
+    current_timestamp() as last_modified
+from {{source("tpch", "customer_nested")}}

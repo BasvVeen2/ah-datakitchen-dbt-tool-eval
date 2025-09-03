@@ -1,4 +1,10 @@
-{{ config(materialized="view", schema="staging", file_format="delta") }}
+{{ 
+    config(
+        materialized="view",
+        schema="staging",
+        file_format="delta",
+        tblproperties = {'delta.enableChangeDataFeed': 'true'}
+) }}
 
 select
     p_partkey as part_key,
@@ -11,5 +17,6 @@ select
     p_retailprice as retail_price,
     p_comment as comment,
     specifications,
-    suppliers
+    suppliers,
+    current_timestamp as last_modified
 FROM {{source("tpch", "part_nested")}}
