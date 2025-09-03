@@ -2,7 +2,8 @@
     config(
         materialized="incremental",
         partition_by = ['order_date'],
-        unique_key=['order_key','linenumber'],
+        incremental_strategy="replace_where",
+        incremental_predicates="(order_date <=> '1998-08-03' OR order_date <=> '1998-08-02' OR order_date <=> '1992-01-01' OR order_date <=> '1992-03-01')",
         schema="intermediate",
         tblproperties = {'delta.enableChangeDataFeed': 'true'},
         file_format="delta"
@@ -34,7 +35,7 @@ SELECT
     current_timestamp() as last_modified
 FROM {{ ref('order') }} o
 LATERAL VIEW EXPLODE(line_items) line_items_table AS line_item
-
-{% if is_incremental()%}
+{% if is_incremental() %}
     WHERE o.last_modified > (select max(last_modified) from {{ this }})
 {% endif %}
+
