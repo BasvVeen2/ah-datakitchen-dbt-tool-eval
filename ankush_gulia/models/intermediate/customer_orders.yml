@@ -1,33 +1,38 @@
 models:
-- name: customer_orders
-  description: This model combines customer and order data to provide insights into
-    customer purchases. It includes key information such as customer names, order
-    identifiers, total prices, and order dates, facilitating analysis of customer
-    purchasing behavior and trends.
-  columns:
-  - name: customer_key
-    description: A unique identifier for each customer, used to link customer and
-      order data.
-    data_tests:
-      - unique
-      - not_null
-  - name: customer_name
-    description: The name of the customer who placed the order.
-    data_tests:
-      - not_null
-  - name: order_key
-    description: A unique identifier for each order, used to track individual customer
-      purchases.
-    data_tests:
-      - unique
-      - not_null
-  - name: total_price
-    description: The total price of the order, representing the complete cost of the
-      customer's purchase.
-    data_tests:
-      - not_null
-  - name: order_date
-    description: The date when the order was placed, used to analyze purchasing patterns
-      over time.
-    data_tests:
-      - not_null
+  - name: customer_orders
+    description:
+      This model combines customer and order data to provide insights into
+      customer purchases. It includes key information such as customer names, order
+      identifiers, total prices, and order dates, facilitating analysis of customer
+      purchasing behavior and trends.
+    columns:
+      - name: customer_key
+        description:
+          A unique identifier for each customer, used to link customer and
+          order data.
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: The name of the customer who placed the order.
+        data_tests:
+          - not_null
+      - name: order_key
+        description:
+          A unique identifier for each order, used to track individual customer
+          purchases.
+        data_tests:
+          - unique
+          - not_null
+      - name: total_price
+        description:
+          The total price of the order, representing the complete cost of the
+          customer's purchase.
+        data_tests:
+          - not_null
+      - name: order_date
+        description:
+          The date when the order was placed, used to analyze purchasing patterns
+          over time.
+        data_tests:
+          - not_null
