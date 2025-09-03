@@ -6,8 +6,16 @@ models:
   columns:
   - name: order_key
     description: A unique identifier for each order.
+    constraints:
+      - type: primary_key
+    data_tests:
+      - not_null
   - name: customer_key
     description: A unique identifier for the customer who placed the order.
+    constraints:
+      - type: foreign_key
+        to: ref('customer')
+        to_columns: [customer_key]
   - name: order_status
     description: The current status of the order, indicating its stage in the processing
       cycle.
@@ -32,3 +40,4 @@ models:
   - name: line_items
     description: An array of line items in the order, detailing each product, supplier,
       and associated costs.
+  - name: last_modified

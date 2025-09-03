@@ -1,5 +1,13 @@
+{{ 
+    config(
+        materialized="table",
+        schema="metrics",
+        file_format="delta"
+        ) 
+}}
+
 SELECT
-  d.region,
+  d.regionkey,
   order_date,
   COUNT(DISTINCT order_key) as orders_count,
   CAST(SUM(quantity) AS decimal(15,2)) as total_quantity,
@@ -12,4 +20,4 @@ SELECT
 FROM {{ ref("fact_sales")}} f
 INNER JOIN {{ ref("dim_customer")}} d
     ON f.customer_key = d.customer_key
-GROUP BY d.region, order_date
+GROUP BY d.regionkey, order_date

@@ -8,10 +8,19 @@ models:
   columns:
   - name: customer_key
     description: A unique identifier for each customer.
+    constraints:
+      - type: primary_key
+    data_tests:
+      - unique
+      - not_null
   - name: customer_name
     description: The full name of the customer.
   - name: nation_key
     description: A reference to the customer's nation, used for geographical analysis.
+    constraints:
+      - type: foreign_key
+        to: ref('nation')
+        to_columns: [nation_key]
   - name: phone
     description: The customer's phone number for contact purposes.
   - name: account_balance
@@ -31,3 +40,7 @@ models:
   - name: account_history
     description: A record of the customer's account activities, including dates, event
       types, and amounts.
+  - name: updated_at
+    description: time when the record was inserted/loaded
+  - name: last_modified
+    description: "last modified timestamp"

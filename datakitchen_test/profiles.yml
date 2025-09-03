@@ -1,10 +1,20 @@
-tempname:
-  target: dev
+prod:
+  target: default # this is the default target
   outputs:
-    type:
-    catalog:
-    schema:
-    host:
-    http_path:
-    auth_type:
-  
+    default:
+      type: databricks
+      catalog: alh_nonprd_soubhik
+      schema: default # Required
+      host: adb-446802110464600.0.azuredatabricks.net # Required
+
+      ### This path is used as the default compute
+      http_path: /sql/1.0/warehouses/4d4fb9b55f2359c4 # Required
+
+      ### New compute section
+      compute:
+        xxs:
+          http_path: '/sql/1.0/warehouses/6dc7c855efbe23de' # Required of each alternate compute
+        small:
+          http_path: '/sql/1.0/warehouses/cd696447ed7c6b8b'
+        medium:
+          http_path: '/sql/1.0/warehouses/c580b42c18e06d98'

@@ -1,0 +1,18 @@
+models:
+- name: customer_contacts
+  description: Intermediate model for customer contact methods
+  
+  constraints:
+    - type: primary_key
+      columns: [customer_key, contact_type]
+  columns:
+  - name: customer_key
+    description: "Unique customer identifier"
+  - name: contact_type
+    description: "Type of contact method (email, phone, etc.)"
+  - name: contact_value
+    description: "Value of the contact method"
+  - name: is_primary_contact_type
+    description: "Indicates if this is the primary contact method"
+  - name: last_modified
+    description: "last modified timestamp"

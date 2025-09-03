@@ -5,13 +5,29 @@ models:
     parts, and suppliers, as well as details on quantity, pricing, discounts, taxes,
     and shipping instructions. This model is essential for analyzing order components
     and their fulfillment status.
+  constraints:
+    - type: primary_key
+      columns: [order_key, line_number, part_key, supplier_key]
+    
   columns:
   - name: order_key
     description: A unique identifier for each order.
+    constraints:
+      - type: foreign_key
+        to: ref('order')
+        to_columns: [order_key]
   - name: part_key
     description: A unique identifier for each part included in the order.
+    constraints:
+      - type: foreign_key
+        to: ref('part_nested')
+        to_columns: [part_key]
   - name: supplier_key
     description: A unique identifier for the supplier of the part.
+    constraints:
+      - type: foreign_key
+        to: ref('supplier')
+        to_columns: [supplier_key]
   - name: line_number
     description: The line number of the item within the order.
   - name: quantity
