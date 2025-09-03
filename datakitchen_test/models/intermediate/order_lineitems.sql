@@ -37,5 +37,6 @@ FROM {{ ref('order') }} o
 LATERAL VIEW EXPLODE(line_items) line_items_table AS line_item
 {% if is_incremental() %}
     WHERE o.last_modified > (select max(last_modified) from {{ this }})
+        AND order_date IN ('1998-08-03', '1998-08-02', '1992-01-01', '1992-03-01')
 {% endif %}
 

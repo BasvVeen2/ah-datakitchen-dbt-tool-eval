@@ -1,8 +1,6 @@
 {{ 
     config(
-        materialized="incremental",
-        unique_key = "customer_key",
-        incremental_strategy='merge',
+        materialized="table",
         partition_by = ['regionkey'],
         schema="marts",
         file_format="delta"
@@ -41,8 +39,3 @@ INNER JOIN {{ ref('customer_contacts') }} cc_email
     AND cc_email.contact_type = 'email'
 INNER JOIN {{ ref('region') }} r 
     ON cd.regionkey = r.region_key
-
-{% if is_incremental() %}
-  where cd.last_modified > (select max(last_modified) from {{ this }})
-    OR cc_primary.last_modified > (select max(last_modified) from {{ this }})
-{% endif %}
